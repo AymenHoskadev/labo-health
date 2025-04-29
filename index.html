@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABO HEALTH</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Add Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><span class="labo">LABO</span> <span class="health">HEALTH</span></h1>
+            </div>
+            <div class="language-switcher">
+                <select onchange="changeLanguage(this.value)" class="lang-select">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="garcinia/1.jpeg" alt="Garcinia Cambodgia" class="active">
+                        <img src="garcinia/2.jpeg" alt="Garcinia Cambodgia">
+                        <img src="garcinia/3.jpeg" alt="Garcinia Cambodgia">
+                        <img src="garcinia/4.jpeg" alt="Garcinia Cambodgia">
+                        <img src="garcinia/5.jpeg" alt="Garcinia Cambodgia">
+                        <div class="image-nav">
+                            <button class="prev">❮</button>
+                            <button class="next">❯</button>
+                        </div>
+                        <div class="image-dots"></div>
+                    </div>
+                    <h2 class="translate" data-en="Garcinia Cambodgia" data-fr="Garcinia Cambodgia" data-ar="غارسينيا كامبوجيا"></h2>
+                    <p class="description translate" 
+                    data-en="Premium weight management supplement. 60 capsules (2 daily) to help burn fat, control appetite, boost metabolism, reduce emotional eating, and lose up to 11kg monthly."
+                    data-fr="Complément premium pour la gestion du poids. 60 gélules (2 par jour) pour brûler les graisses, contrôler l'appétit, stimuler le métabolisme, réduire les fringales émotionnelles et perdre jusqu'à 11kg par mois."
+                    data-ar="مكمل متميز لإدارة الوزن. 60 كبسولة (2 يومياً) لحرق الدهون، كبح الشهية، تعزيز الأيض، تقليل الأكل العاطفي، وفقدان حتى 11 كجم شهرياً."></p>
+                 <p class="price">3000 DA</p>
+                 
+                    <button class="order-btn translate" 
+                            onclick="openOrderForm('Garcinia Cambodgia', 3000)"
+                            data-en="Order Now"
+                            data-fr="Commander"
+                            data-ar="اطلب الآن"></button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="logo.png" alt="Kalma Plus">
+                    <h2 class="translate" data-en="Kalma Plus" data-fr="Kalma Plus" data-ar="كالما بلس"></h2>
+                    <p class="description translate"
+                    data-en="Natural relaxation supplement. 60 capsules (2 daily) to reduce stress, improve sleep, ease anxiety, support mood balance, and assist with quitting smoking."
+                    data-fr="Complément naturel pour la détente. 60 gélules (2 par jour) pour réduire le stress, améliorer le sommeil, apaiser l'anxiété, soutenir l'équilibre de l'humeur et aider à arrêter de fumer."
+                    data-ar="مكمل طبيعي للاسترخاء. 60 كبسولة (2 يومياً) لتقليل التوتر، تحسين النوم، تخفيف القلق، دعم التوازن المزاجي، والمساعدة على الإقلاع عن التدخين."></p>
+                 <p class="price">2300 DA</p>
+                 
+                    <button class="order-btn translate"
+                            onclick="openOrderForm('Kalma Plus', 230)"
+                            data-en="Order Now"
+                            data-fr="Commander"
+                            data-ar="اطلب الآن"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about-section">
+            <div class="about-card">
+                <div class="about-content">
+                    <h2 class="section-title translate"
+                        data-en="About LABO HEALTH"
+                        data-fr="À Propos de LABO HEALTH"
+                        data-ar="عن لابو هيلث"></h2>
+                    <div class="about-text">
+                        <p class="translate"
+                           data-en="LABO HEALTH is a leading Algerian laboratory dedicated to developing and producing high-quality dietary supplements. Based in Algeria, we combine modern scientific research with rigorous quality control to deliver premium health products to our customers."
+                           data-fr="LABO HEALTH est un laboratoire algérien de premier plan dédié au développement et à la production de compléments alimentaires de haute qualité. Basés en Algérie, nous combinons la recherche scientifique moderne avec un contrôle qualité rigoureux pour offrir des produits de santé premium à nos clients."
+                           data-ar="لابو هيلث هو مختبر جزائري رائد مخصص لتطوير وإنتاج المكملات الغذائية عالية الجودة. من مقرنا في الجزائر، نجمع بين البحث العلمي الحديث والرقابة الصارمة على الجودة لتقديم منتجات صحية متميزة لعملائنا."></p>
+                        <p class="translate"
+                           data-en="Our commitment to excellence ensures that each product meets the highest standards of quality and safety. We take pride in contributing to the health and well-being of our community through innovative and effective supplements."
+                           data-fr="Notre engagement envers l'excellence garantit que chaque produit répond aux normes les plus élevées de qualité et de sécurité. Nous sommes fiers de contribuer à la santé et au bien-être de notre communauté grâce à des compléments innovants et efficaces."
+                           data-ar="يضمن التزامنا بالتميز أن كل منتج يلبي أعلى معايير الجودة والسلامة. نحن نفخر بالمساهمة في صحة ورفاهية مجتمعنا من خلال المكملات المبتكرة والفعالة."></p>
+                    </div>
+           
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Form Modal -->
+        <div id="orderModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 class="translate" 
+                    data-en="Place Your Order"
+                    data-fr="Passer Votre Commande"
+                    data-ar="ضع طلبك"></h2>
+                <form id="orderForm">
+                    <input type="hidden" id="productName" name="productName">
+                    <input type="hidden" id="productPrice" name="productPrice">
+                    
+                    <div class="form-group">
+                        <label for="name" class="translate"
+                               data-en="Name:"
+                               data-fr="Nom:"
+                               data-ar="الاسم:"></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address" class="translate"
+                               data-en="Address:"
+                               data-fr="Adresse:"
+                               data-ar="العنوان:"></label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="translate"
+                               data-en="Phone Number:"
+                               data-fr="Numéro de Téléphone:"
+                               data-ar="رقم الهاتف:"></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn translate"
+                            data-en="Submit Order"
+                            data-fr="Envoyer la Commande"
+                            data-ar="إرسال الطلب"></button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="translate"
+           data-en="© 2024 LABO HEALTH. All rights reserved."
+           data-fr="© 2024 LABO HEALTH. Tous droits réservés."
+           data-ar="© 2024 لابو هيلث. جميع الحقوق محفوظة."></p>
+    </footer>
+
+    <div id="confirmationMessage" class="confirmation-message">
+        <div class="confirmation-content">
+            <h3 class="translate"
+                data-en="Thank you!"
+                data-fr="Merci!"
+                data-ar="شكراً لك!"></h3>
+            <p class="translate"
+               data-en="We will contact you soon."
+               data-fr="Nous vous contacterons bientôt."
+               data-ar="سنتواصل معك قريباً."></p>
+        </div>
+    </div>
+
+    <!-- Add Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
