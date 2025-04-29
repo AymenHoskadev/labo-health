@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garcinia Cambodgia - LABO HEALTH</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .product-detail {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        .product-gallery {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-info {
+                padding: 0;
+            }
+        }
+
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .product-info h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .product-description {
+            margin: 1.5rem 0;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .product-features {
+            margin: 2rem 0;
+        }
+
+        .product-features h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "•";
+            color: #822580;
+            position: absolute;
+            left: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #822580;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #6a1d68;
+            transform: translateY(-2px);
+        }
+
+        .product-images {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .product-images img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .product-images img.active {
+            display: block;
+        }
+
+        .image-nav {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            z-index: 2;
+        }
+
+        .image-nav button {
+            background: rgba(130, 37, 128, 0.8);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-nav button:hover {
+            background: rgba(130, 37, 128, 1);
+        }
+
+        .image-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background: #822580;
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #009544;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .delivery-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: #822580;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 480px) {
+            .price {
+                font-size: 1.5rem;
+            }
+            .delivery-badge {
+                display: block;
+                margin: 0.5rem 0;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="../index.html" style="text-decoration: none;"><span class="labo">LABO</span> <span class="health">HEALTH</span></a></h1>
+            </div>
+            <div class="language-switcher">
+                <select onchange="changeLanguage(this.value)" class="lang-select">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product-detail">
+            <div class="product-gallery">
+                <div class="product-images">
+                    <img src="../garcinia/1.jpeg" alt="Garcinia Cambodgia" class="active">
+                    <img src="../garcinia/2.jpeg" alt="Garcinia Cambodgia">
+                    <img src="../garcinia/3.jpeg" alt="Garcinia Cambodgia">
+                    <img src="../garcinia/4.jpeg" alt="Garcinia Cambodgia">
+                    <img src="../garcinia/5.jpeg" alt="Garcinia Cambodgia">
+                    <div class="image-nav">
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
+                    <div class="image-dots"></div>
+                </div>
+            </div>
+            
+            <div class="product-info">
+             
+                
+                <h1 class="translate" 
+                    data-en="Garcinia Cambodgia"
+                    data-fr="Garcinia Cambodgia"
+                    data-ar="غارسينيا كامبوجيا"></h1>
+                
+                <p class="price">2600 DA<span class="delivery-badge translate"
+                    data-en="Free Delivery"
+                    data-fr="Livraison Gratuite"
+                    data-ar="توصيل مجاني"></span></p>
+                
+                <div class="product-description">
+                    <p class="translate"
+                       data-en="Premium weight management supplement designed to help you achieve your weight loss goals naturally and effectively. Each bottle contains 60 capsules, with a recommended dosage of 2 capsules daily."
+                       data-fr="Complément alimentaire premium pour la gestion du poids, conçu pour vous aider à atteindre vos objectifs de perte de poids naturellement et efficacement. Chaque flacon contient 60 gélules, avec une posologie recommandée de 2 gélules par jour."
+                       data-ar="مكمل متميز لإدارة الوزن مصمم لمساعدتك على تحقيق أهداف فقدان الوزن بشكل طبيعي وفعال. يحتوي كل عبوة على 60 كبسولة، بجرعة موصى بها قدرها كبسولتان يومياً."></p>
+                </div>
+                
+                <div class="product-features">
+                    <h3 class="translate"
+                        data-en="Key Benefits"
+                        data-fr="Avantages Principaux"
+                        data-ar="الفوائد الرئيسية"></h3>
+                    <ul class="feature-list">
+                        <li class="translate"
+                            data-en="Burns fat naturally and effectively"
+                            data-fr="Brûle les graisses naturellement et efficacement"
+                            data-ar="حرق الدهون بشكل طبيعي وفعال"></li>
+                        <li class="translate"
+                            data-en="Controls appetite and reduces cravings"
+                            data-fr="Contrôle l'appétit et réduit les envies"
+                            data-ar="التحكم في الشهية وتقليل الرغبة في تناول الطعام"></li>
+                        <li class="translate"
+                            data-en="Boosts metabolism and energy levels"
+                            data-fr="Stimule le métabolisme et les niveaux d'énergie"
+                            data-ar="تعزيز عملية التمثيل الغذائي ومستويات الطاقة"></li>
+                        <li class="translate"
+                            data-en="Helps reduce emotional eating"
+                            data-fr="Aide à réduire la consommation émotionnelle"
+                            data-ar="يساعد في تقليل الأكل العاطفي"></li>
+                        <li class="translate"
+                            data-en="Supports weight loss of up to 11kg monthly"
+                            data-fr="Favorise une perte de poids jusqu'à 11kg par mois"
+                            data-ar="يدعم فقدان الوزن حتى 11 كجم شهرياً"></li>
+                    </ul>
+                </div>
+                
+                <button class="order-btn translate"
+                        onclick="openOrderForm('Garcinia Cambodgia', 3000)"
+                        data-en="Order Now"
+                        data-fr="Commander"
+                        data-ar="اطلب الآن"></button>
+            </div>
+        </div>
+
+        <!-- Order Form Modal -->
+        <div id="orderModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 class="translate" 
+                    data-en="Place Your Order"
+                    data-fr="Passer Votre Commande"
+                    data-ar="ضع طلبك"></h2>
+                <form id="orderForm">
+                    <input type="hidden" id="productName" name="productName">
+                    <input type="hidden" id="productPrice" name="productPrice">
+                    
+                    <div class="form-group">
+                        <label for="name" class="translate"
+                               data-en="Name:"
+                               data-fr="Nom:"
+                               data-ar="الاسم:"></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address" class="translate"
+                               data-en="Address:"
+                               data-fr="Adresse:"
+                               data-ar="العنوان:"></label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="translate"
+                               data-en="Phone Number:"
+                               data-fr="Numéro de Téléphone:"
+                               data-ar="رقم الهاتف:"></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn translate"
+                            data-en="Submit Order"
+                            data-fr="Envoyer la Commande"
+                            data-ar="إرسال الطلب"></button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="confirmationMessage" class="confirmation-message">
+        <div class="confirmation-content">
+            <h3 class="translate"
+                data-en="Thank you!"
+                data-fr="Merci!"
+                data-ar="شكراً لك!"></h3>
+            <p class="translate"
+               data-en="We will contact you soon."
+               data-fr="Nous vous contacterons bientôt."
+               data-ar="سنتواصل معك قريباً."></p>
+        </div>
+    </div>
+
+    <footer>
+        <p class="translate"
+           data-en="© 2024 LABO HEALTH. All rights reserved."
+           data-fr="© 2024 LABO HEALTH. Tous droits réservés."
+           data-ar="© 2024 لابو هيلث. جميع الحقوق محفوظة."></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html> 
