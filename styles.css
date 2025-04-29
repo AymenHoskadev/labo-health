@@ -527,15 +527,15 @@ footer {
 
 /* About Section Styles */
 .about-section {
-    padding: 4rem 0;
-    margin-top: 2rem;
+    padding: 2rem 0;
+    margin-top: 1rem;
     animation: fadeIn 1s ease-out;
 }
 
 .about-card {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2.5rem;
+    padding: 1.5rem;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -552,7 +552,7 @@ footer {
 }
 
 .about-content {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .section-title {
@@ -633,27 +633,62 @@ footer {
 /* Responsive Design for About Section */
 @media (max-width: 768px) {
     .about-section {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
     }
 
     .about-card {
-        margin: 0 1rem;
+        margin: 0 0.5rem;
+        padding: 1rem;
     }
 
     .section-title {
         font-size: 1.75rem;
+        margin-bottom: 1rem;
     }
 
     .about-text p {
         font-size: 1rem;
+        margin-bottom: 0.75rem;
     }
 
     .quality-features {
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .feature {
         min-width: 120px;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 1rem 0.5rem;
+    }
+
+    .about-card {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+
+    .about-content {
+        padding: 0.25rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .feature {
+        padding: 0.5rem;
+        min-width: 100px;
     }
 }
 
@@ -745,4 +780,4 @@ footer {
 [lang="ar"] .features li:before {
     left: auto;
     right: 0;
-} 
+}
